@@ -1,0 +1,56 @@
+{%extends "base.html" %}
+
+{% block sidebar %}
+<ul class="nav-links">
+<li>
+  <a href="#">
+    <i class="fa-solid fa-table-cells-large"></i>
+    <span class="links_name">Dashboard</span>
+  </a>
+</li>
+
+
+<li>
+  <a href="#" >
+    <i class="fa-solid fa-chart-line"></i>
+    <span class="links_name">Analytics</span>
+  </a>
+</li>
+<li>
+  <a href="{{ url_for('video') }}" >
+     <i class="fa-solid fa-video"></i>
+    <span class="links_name">Video</span>
+  </a>
+</li>
+
+<li>
+  <a href="{{ url_for('guard') }}" class="active">
+    <i class="fa-solid fa-users"></i>
+    <span class="links_name">Guards</span>
+  </a>
+</li>
+
+<li>
+  <a href="#">
+    <i class="fa-solid fa-bell"></i>   
+    <span class="links_name">Notifications</span>
+  </a>
+</li>
+<li>
+  <a href="#">
+    <i class="fa-solid fa-cog"></i>
+    <span class="links_name">Settings</span>
+  </a>
+</li>
+<li class="log_out">
+  <a href="#">
+    <i class="fa fa-angles-left"></i>
+    <span class="links_name">Log out</span>
+  </a>
+</li>
+</ul>
+{% endblock %}
+
+{% block sectionName %}
+    <span class="dashboard">Guards</span>
+{% endblock %}

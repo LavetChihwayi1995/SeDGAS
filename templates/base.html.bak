@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!--<title> Responsiive Admin Dashboard | CodingLab </title>-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashbard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome-free-6.0.0-web/fontawesome-free-6.0.0-web/css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome-free-6.0.0-web/fontawesome-free-6.0.0-web/css/all.css') }}">
+    
+    
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">SeDGAS</span>
+      
+    </div>
+      <ul class="nav-links">
+        <li>
+          <a href="#" class="active">
+            <i class="fa-solid fa-table-cells-large"></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+        </li>
+     
+       
+        <li>
+          <a href="#">
+            <i class="fa-solid fa-chart-line"></i>
+            <span class="links_name">Analytics</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+             <i class="fa-solid fa-video"></i>
+            <span class="links_name">Video</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="#">
+            <i class="fa-solid fa-users"></i>
+            <span class="links_name">Guards</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="#">
+            <i class="fa-solid fa-bell"></i>   
+            <span class="links_name">Notifications</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa-solid fa-cog"></i>
+            <span class="links_name">Settings</span>
+          </a>
+        </li>
+        <li class="log_out">
+          <a href="#">
+            <i class="fa fa-angles-left"></i>
+            <span class="links_name">Log out</span>
+          </a>
+        </li>
+      </ul>
+  </div>
+  
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='fa fa-bars sidebarBtn'></i>
+        {% block sectionName %}{% endblock %}
+        
+      </div>
+      <div class="search-box">
+		<strong>Sentiment Driven Gates Access System@
+        {% for i in data %}
+            {{ i['commName'] }} 
+        {% endfor %}
+        </strong>
+      </div>
+      <div class="profile-details">
+        <img src="{{ url_for('static', filename='img/lavet.png') }}" alt="">
+        <span class="admin_name">Lavet Chihwayi</span>
+        <i class='bx bx-chevron-down' ></i>
+      </div>
+    </nav>
+    {% block home-content %}{% endblock %}
+   
+  </section>
+  
+  <script>
+   let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".sidebarBtn");
+sidebarBtn.onclick = function() {
+  sidebar.classList.toggle("active");
+  if(sidebar.classList.contains("active")){
+  sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+}else
+  sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+}
+ </script>
+
+</body>
+</html>
+
